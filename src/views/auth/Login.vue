@@ -12,14 +12,14 @@ export default {
     data () {
         return {
             credentials: {
-              email: '',
-              password: '',
+              email: 'admin@example.com',
+              password: '123456',
             }
         }
     },
     methods: {
         sendLogin() {
-          this.axios.get('airlock/csrf-cookie').then(response => {
+          this.axios.get('csrf-cookie').then(response => {
             console.log(response);
 
             this.axios.post('auth/login', this.credentials).then((data) => {
