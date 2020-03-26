@@ -25,6 +25,16 @@ export default {
             this.axios.post('auth/login', this.credentials).then((data) => {
               console.log('LOGIN SUCCESFUL')
               console.log(data);
+
+              this.axios.get('auth/user').then(response => {
+                console.log('User queried');
+                console.log(response);
+
+              }).catch((exception) => {
+                console.log('User query unsuccesful');
+                console.error(exception)
+            });
+
             }).catch((exception) => {
                 console.log('Login unsuccesful');
                 console.error(exception)
